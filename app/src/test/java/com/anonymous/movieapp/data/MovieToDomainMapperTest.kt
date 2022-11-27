@@ -3,13 +3,13 @@ package com.anonymous.movieapp.data
 import com.anonymous.movieapp.data.mapper.MovieToDomainMapper
 import com.anonymous.movieapp.data.model.Movie
 import com.anonymous.movieapp.data.model.Result
-import org.junit.jupiter.api.Assertions.*
+import com.anonymous.movieapp.data.repository.imageDomainName
 import org.junit.jupiter.api.Test
 
 class MovieToDomainMapperTest {
     @Test
     fun convertToDomain() {
-        val result = MovieToDomainMapper().map(getFakeMovie())
+        val result = MovieToDomainMapper().mapMovie(getFakeMovie())
         assert(result.size == 2)
         assert(result[0].id.compareTo(12345) == 0)
         assert(result[0].title == "this is title 1")

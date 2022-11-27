@@ -2,6 +2,7 @@ package com.anonymous.movieapp.data
 
 import com.anonymous.movieapp.data.api.MovieService
 import com.anonymous.movieapp.data.mapper.MovieToDomainMapper
+import com.anonymous.movieapp.data.repository.MovieRepositoryImpl
 import com.anonymous.movieapp.util.invokeResult
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import kotlinx.coroutines.ExperimentalCoroutinesApi
