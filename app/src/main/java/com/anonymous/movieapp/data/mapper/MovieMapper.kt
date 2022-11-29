@@ -5,8 +5,9 @@ import com.anonymous.movieapp.data.model.MovieDetails
 import com.anonymous.movieapp.data.repository.imageDomainName
 import com.anonymous.movieapp.domain.movieDetails.useCase.MovieDetailsDomain
 import com.anonymous.movieapp.domain.movieList.model.MovieDomain
+import javax.inject.Inject
 
-class MovieToDomainMapper() {
+class MovieToDomainMapper @Inject constructor() {
     fun mapMovie(movie: Movie): List<MovieDomain> =
         movie.results?.map {
             MovieDomain(
@@ -21,10 +22,10 @@ class MovieToDomainMapper() {
 
     fun mapMovieDetails(movieDetails: MovieDetails): MovieDetailsDomain =
         MovieDetailsDomain(
-            title = movieDetails.title,
-            description = movieDetails.overview,
-            imageURl = "$imageDomainName$movieDetails.posterPath",
-            yearOfRelease = convertToYear(movieDetails.releaseDate)
+            title = movieDetails.title?:"",
+            description = movieDetails.overview?:"",
+            imageURl = concertToCompleteImagePath(movieDetails.posterPath?:""),
+            yearOfRelease = convertToYear(movieDetails.releaseDate?:"")
         )
 
 
